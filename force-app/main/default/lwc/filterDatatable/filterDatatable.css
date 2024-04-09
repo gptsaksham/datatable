@@ -1,0 +1,68 @@
+.bodyTitle{
+    color: var(--lwc-colorTextWeak, rgb(68, 68, 68));
+    font-weight: var(--lwc-fontWeightRegular, 400);
+    font-size: 0.8125rem;
+    line-height: var(--lwc-lineHeightText, 1.5);
+    padding-bottom: var(--lwc-spacingXSmall, 0.5rem);
+}
+
+.panelBody ol {
+    margin: 0;
+    padding-left: 0;
+}
+
+.panelBody li:first-child {
+    margin-top: 0;
+}
+
+.panelBody li {
+    list-style-type: none;
+    margin: var(--lwc-spacingSmall, 0.75rem) 0 var(--lwc-spacingSmall, 0.75rem) 0;
+}
+.forceFilterPanelFilterCriterion .hasBeenEdited {
+    background-color: var(--lwc-colorBackgroundHighlight, rgb(250, 255, 189));
+    border: 1px solid var(--slds-g-color-palette-yellow-50, #A86403);
+}
+
+
+.forceFilterPanelFilterCriterion .wrapper {
+    border: var(--slds-g-color-border-base-4, #747474) 1px solid;
+    border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+    padding: var(--lwc-spacingSmall, 0.75rem);
+}
+
+.forceFilterPanelFilterCriterion .trigger {
+    display: inline-block;
+    width: 93%;
+}
+
+.forceFilterPanelFilterCriterion .filterInfoWrapper {
+    display: inline-block;
+}
+
+.forceFilterPanelFilterCriterion .fieldLabel {
+    color: var(--lwc-colorTextLabel, rgb(68, 68, 68));
+    font-weight: var(--lwc-fontWeightRegular, 400);
+    font-size:  0.75rem;
+    line-height: var(--lwc-lineHeightText, 1.5);
+}
+
+.forceFilterPanelFilterCriterion .operatorAndOperand {
+    color: var(--lwc-colorTextDefault, rgb(24, 24, 24));
+    font-weight: var(--lwc-fontWeightRegular, 400);
+    font-size:  0.8125rem;
+    line-height: var(--lwc-lineHeightText, 1.5);
+    line-break: anywhere;
+}
+
+.forceFilterPanelFilterCriterion .closeX {
+    float: right;
+    color: var(--lwc-colorTextIconDefaultHint, rgb(174, 174, 174));
+}
+
+.slds-icon_container, .slds-icon__container {
+    display: inline-block;
+    border-radius: var(--slds-c-icon-radius-border, var(--sds-c-icon-radius-border, var(--lwc-borderRadiusMedium, 0.25rem)));
+    line-height: var(--lwc-lineHeightReset, 1);
+    background-color: var(--slds-c-icon-color-background, var(--sds-c-icon-color-background, transparent));
+}

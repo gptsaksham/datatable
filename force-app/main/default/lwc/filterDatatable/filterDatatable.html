@@ -1,0 +1,43 @@
+<template>
+	<div class="slds-panel__header panelHeader" data-aura-rendered-by="2575:0">
+		<h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" data-aura-rendered-by="2577:0">
+			Filters
+		</h2>
+		<lightning-icon alternative-text="Close Filters" style="cursor:pointer" title="Close Filters"
+			onclick={CloseFilters} size="xx-small" icon-name="utility:close">
+		</lightning-icon>
+	</div>
+	<div class="slds-panel__body panelBody">
+		<div if:true={showFilters}>
+			<h3 class="bodyTitle" data-aura-rendered-by="2643:0">Matching all of these filters</h3>
+		</div>
+		<ol class="" data-aura-rendered-by="2649:0">
+			<li data-aura-rendered-by="4665:0">
+				<div data-aura-rendered-by="4668:0" class="forceFilterPanelFilterCriterion"
+					data-aura-class="forceFilterPanelFilterCriterion">
+					<div id="filterPanelFieldCriterion17" class="wrapper hasBeenEdited" data-aura-rendered-by="4669:0"
+						data-proxy-id="aura-pos-lib-70"><a class="trigger" data-aura-rendered-by="4671:0"
+							href="javascript:void(0);"><span class="filterInfoWrapper" data-aura-rendered-by="4672:0"><div class="fieldLabel" data-aura-rendered-by="4673:0">New Filter<span data-aura-rendered-by="4676:0">*</span>
+					</div>
+					<span class="operatorAndOperand" data-aura-rendered-by="4679:0"><span class="test-operatorWrapper" data-aura-rendered-by="4680:0"></span>
+					&nbsp;<span class="test-operandsWrapper" data-aura-rendered-by="4682:0"><span data-aura-rendered-by="4692:0" class="uiOutputText" data-aura-class="uiOutputText"></span></span></span></span></a><a
+						class="closeX" data-aura-rendered-by="4683:0" href="javascript:void(0);">
+						<lightning-icon icon-name="utility:close" size="xx-small"
+							class="slds-icon-utility-close closeXIcon slds-button__icon slds-icon_container forceIcon"
+							data-data-rendering-service-uid="1148" data-aura-rendered-by="4687:0"
+							data-aura-class="forceIcon">
+							<span style="--sds-c-icon-color-background: var(--slds-c-icon-color-background, transparent)" part="boundary"><lightning-primitive-icon size="xx-small" variant="inverse"><svg class="slds-icon slds-icon_xx-small" focusable="false" data-key="close" aria-hidden="true" viewBox="0 0 520 520" part="icon"><g><path d="M310 254l130-131c6-6 6-15 0-21l-20-21c-6-6-15-6-21 0L268 212a10 10 0 01-14 0L123 80c-6-6-15-6-21 0l-21 21c-6 6-6 15 0 21l131 131c4 4 4 10 0 14L80 399c-6 6-6 15 0 21l21 21c6 6 15 6 21 0l131-131a10 10 0 0114 0l131 131c6 6 15 6 21 0l21-21c6-6 6-15 0-21L310 268a10 10 0 010-14z"></path></g></svg></lightning-primitive-icon><span class="slds-assistive-text">Remove</span></span>
+						</lightning-icon>
+					</a>
+				</div>
+				<!--render facet: 4688:0-->
+				</div>
+			</li>
+		</ol>
+		<div class="addFilterRemoveAll" style="justify-content: space-between;display: flex;">
+			<a role="button" class=" addFilter" href="javascript:void(0);">Add Filter</a>
+			<a role="button" class="removeAll" href="javascript:void(0);">Remove All</a>
+		</div>
+	</div>
+
+</template>

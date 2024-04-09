@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slds-dropdown{
+    /* display: none; */
+    transition: opacity var(--lwc-durationQuickly, 0.1s) linear, visibility var(--lwc-durationQuickly, 0.1s) linear;
+
+}
+
+.slds-dropdown_length-with-icon-10, .slds-dropdown--length-with-icon-10 {
+    -webkit-overflow-scrolling: touch;
+    max-height: calc((1.5rem + 1rem)* 10);
+    overflow-y: auto;
+}
+
+.slds-dropdown__item{
+    line-height: var(--lwc-lineHeightText, 1.5);
+    font-weight: var(--lwc-fontWeightRegular, 400);
+}
+
+.slds-dropdown__item>a {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--lwc-spacingXSmall, 0.5rem) var(--lwc-spacingSmall, 0.75rem);
+    color: var(--slds-g-color-neutral-base-10, var(--lwc-colorTextDefault, rgb(24, 24, 24)));
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.slds-dropdown__item>a:hover, .slds-dropdown__item>a:focus {
+    outline: 0;
+    text-decoration: none;
+    background-color: var(--slds-g-color-neutral-base-95, var(--lwc-colorBackgroundRowHover, rgb(243, 243, 243)));
+}
+
+.search-container {
+    margin-bottom: 10px;
+    width: 100%;
+    /* max-width: 400px; */
+}
+
+.search-input {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #d8dde6;
+    padding: 8px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.datatable-container {
+    width: 100%;
+	height: 422px;
+    position: relative;
+}
+
+.datatable {
+    width: 100%;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+/*  */
+.slds-dropdown_right{
+    top: 2rem;
+    right: 0px;
+    transform: translateX(0);
+}
+
+.refreshButton:focus{
+     --slds-c-icon-color-foreground-default : #0176D3;
+}
+
+
+.extraIcons{
+    border: var(--lwc-borderWidthThin, 1px) solid var(--slds-c-input-color-border, var(--sds-c-input-color-border, var(--slds-g-color-border-base-4, var(--lwc-colorBorderInput, rgb(201, 201, 201)))));
+    padding: 7px;
+}
+
+.inlineEditorCheck{
+    --slds-c-icon-color-foreground-default : #0176D3;
+}
+
+.inlineEditorUncheck{
+    --slds-c-icon-color-foreground-default : grey;
+}

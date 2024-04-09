@@ -1,0 +1,227 @@
+<template>
+	<div style="background:white;padding:10px 0px 10px 0px" class="container">
+		<!-- <lightning-input type="toggle" label="Inline editing" checked onchange={handleToggle}>
+		</lightning-input> -->
+
+		<div style="width:100%" class="slds-grid slds-wrap slds-gutters">
+			<div class="slds-col slds-size_2-of-3">
+				<span>1</span>
+			</div>
+			<div class="slds-col slds-size_1-of-3">
+				<div class="search-container slds-grid slds-wrap slds-gutters" style="display:flex">
+					<!-- <lightning-input style="width:97%" type="search" label={searchInputLabel} onchange={handleSearch} class=""
+				variant="label-hidden" placeholder={searchInputLabel}></lightning-input> -->
+
+
+					<div class="slds-form-element slds-size_1-of-2">
+
+						<div
+							class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left slds-align--absolute-center">
+							<lightning-icon size="xx-small"
+								class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default"
+								icon-name="utility:search"></lightning-icon>
+
+							<lightning-icon style="right: 5px;position: absolute;" alternative-text="Setup"
+								title="Setup" onclick={changeSearchFilter} size="xx-small" icon-name="utility:down">
+							</lightning-icon>
+							<template if:true={showFilterType}>
+								<div style="background:white"
+									class="slds-dropdown searchBarOuterBox slds-dropdown_right">
+									<ul class="dropdown__list slds-dropdown__list slds-dropdown_length-with-icon-10">
+										<template for:each={columns} for:item="data">
+											<li key={data.label} class="slds-dropdown__item listViewSettingsMenuNew">
+												<a style="display:block" key={data.label} data-id={data.label}
+													onclick={handleSearchSetup}><span>{data.label}</span></a>
+											</li>
+										</template>
+									</ul>
+								</div>
+							</template>
+
+							<input style=" padding-right: 1.5rem;" onchange={handleSearch} label={searchInputLabel} type="text" id="text-input-id-1" placeholder={searchInputLabel} class="slds-input" />
+                        </div>
+						</div>
+
+
+
+
+
+						<!--  -->
+
+						<div class="slds-col">
+							
+							<div style="display: flex;    position: relative;">
+                                <div style="cursor:pointer;    margin-right: 4px;width: fit-content;border:1px solid grey" class="slds-button" onclick={controlListView}>
+								 <lightning-icon style="border:none;cursor:pointer; background: white;" class="extraIcons slds-button"  alternative-text="List View Controls"
+                                                title="List View Controls"  size="xx-small" icon-name="utility:setup">
+                                            </lightning-icon>
+                                            <lightning-icon style="margin-right:4px" class="slds-icon-utility-setup slds-icon_container" alternative-text="Setup"
+								title="Setup" size="xx-small" icon-name="utility:down">
+							</lightning-icon>
+                                </div>
+                                        <span style="background:white;left: auto;  right: auto;display:none"
+                                            class="controlListViewDropdown slds-dropdown slds-dropdown_right">
+                                            <ul class="dropdown__list slds-dropdown__list slds-dropdown_length-with-icon-10">
+                                                <template for:each={columns} for:item="data">
+                                                    <li key={data.label} class="slds-dropdown__item listViewSettingsMenuNew">
+                                                        <a style="display:block" key={data.label} data-id={data.label}
+                                                            onclick={handleSearchSetup}><span>{data.label}</span></a>
+                                                    </li>
+                                                </template>
+                                            </ul>
+                                        </span>
+							
+                                        
+                                                               
+                                            <lightning-icon style="cursor:pointer; background: white;" class="extraIcons refreshButton slds-button"  alternative-text="Refresh"
+                                                title="Refresh" onclick={refreshDataTable} size="xx-small" icon-name="utility:refresh">
+                                            </lightning-icon>
+
+                                            <lightning-icon style="cursor:pointer;" class="extraIcons inlineEditor inlineEditorCheck slds-button"  alternative-text="Inline-edit"
+                                                title="Inline-edit"  onclick={handleToggle} size="xx-small" icon-name="utility:edit">
+                                            </lightning-icon>
+                                            <lightning-icon style="cursor:pointer;" class="extraIcons inlineEditor  slds-button"  alternative-text="Show filters"
+                                                title="Show filters"  onclick={showFilters} size="xx-small" icon-name="utility:filterList">
+                                            </lightning-icon>
+                                     
+							</div>
+							<!-- <lightning-icon onclick={changeSearchFilter} icon-name="utility:setup"
+								alternative-text="Setup" title="Setup"></lightning-icon>
+							<template if:true={showFilterType}>
+								<div style="background:white"
+									class="slds-dropdown searchBarOuterBox slds-dropdown_right">
+									<ul class="dropdown__list slds-dropdown__list slds-dropdown_length-with-icon-10">
+										<template for:each={columns} for:item="data">
+											<li key={data.label} class="slds-dropdown__item listViewSettingsMenuNew">
+												<a style="display:block" key={data.label} data-id={data.label}
+													onclick={handleSearchSetup}><span>{data.label}</span></a>
+											</li>
+										</template>
+									</ul>
+								</div>
+							</template> -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- Selected filters section  -->
+
+			<template for:each={filters} for:item="filter" for:index="index">
+				<div class="forceFilterPanelFilterCriterion" key={filter.fieldApiName}
+					data-aura-class="forceFilterPanelFilterCriterion"
+					style="width:200px;border: 1px solid;padding: 10px;display:flex">
+					<a class="filterCreation" style="display: inline-block;    width: 93%;">
+						<span class="filterInfoWrapper" style="display: inline-block;">
+                        <div class="fieldLabel" style="color: var(--lwc-colorTextLabel, rgb(68, 68, 68));
+                                                font-weight: var(--lwc-fontWeightRegular, 400);
+                                                font-size: var(--lwc-fontSizeSmall, 0.75rem);
+                                                line-height: var(--lwc-lineHeightText, 1.5);">
+                                          {filter.fieldApiName}      
+                        </div>
+                        <span class="operatorAndOperand" style="    color: var(--lwc-colorTextDefault, rgb(24, 24, 24));
+                                                                    font-weight: var(--lwc-fontWeightRegular, 400);
+                                                                    font-size: var(--lwc-fontSizeMedium, 0.8125rem);
+                                                                    line-height: var(--lwc-lineHeightText, 1.5);
+                                                                    line-break: anywhere;">
+                            <span  class="test-operatorWrapper">{filter.operator}</span> &nbsp;
+						<span class="test-operandsWrapper">
+                                <span class="uiOutputText">
+                                    {filter.value}
+                                </span>
+						</span>
+						</span>
+						</span>
+					</a>
+
+					<a class="closeX"
+						style="float: right; color: var(--lwc-colorTextIconDefaultHint, rgb(174, 174, 174))">
+						<lightning-icon onclick={removeSelectedFilter} index={index} size="x-small"
+							icon-name="utility:close"
+							class="slds-icon-utility-close closeXIcon slds-button__icon slds-icon_container forceIcon"
+							alternative-text="Close"></lightning-icon>
+					</a>
+				</div>
+			</template>
+
+			<!-- Filters Section  -->
+
+			<div>
+				<lightning-combobox label="Field API Name" class="fieldApiName" options={columns} value={fieldApiName}
+					onchange={handleFieldChange}>
+				</lightning-combobox>
+
+				<!-- Operator  -->
+
+
+
+			</div>
+
+			<lightning-combobox name="Operator" label="Operator" class="operatorValue" value={operatorValue}
+				placeholder="Select Progress" options={operatorOptions} onchange={handleOperatorChange}>
+			</lightning-combobox>
+			<lightning-input label="Value" class="filterValue" value={selectedFilterValue} onchange={handleValueChange}
+				data-index={}></lightning-input>
+			<lightning-button label="Done" title="Done" onclick={applyFilter}></lightning-button>
+			<lightning-button label="Add Filter" onclick={addFilter}></lightning-button>
+			<lightning-button label="Remove" onclick={removeFilter} data-index={index}></lightning-button>
+
+			<!-- Apply filters button -->
+			<lightning-button label="Apply Filters" onclick={applyFilters}></lightning-button>
+
+			<!-- Filter logic field -->
+			<lightning-input label="Filter Logic" value={filterLogic} onchange={handleFilterLogicChange}>
+			</lightning-input>
+
+
+			<!-- End filters  -->
+
+            <div class="slds-grid slds-gutters" style="width:100%">
+                <div class="slds-col slds-no-space forceListViewManagerPrimaryDisplayManager" style="padding:0">
+                    <span>
+                        <div class="datatable-container">
+                    <c-custom-data-table key-field="Id" data={accounts} columns={columns} onloadmore={loadMoreData}
+                        enable-infinite-loading draft-values={updatedDrafts} onsave={saveHandleAction}
+                        oncellchange={handleCellChange} oncancel={cancelHandleAction} onsort={handleSort} sorted-by={sortBy}
+                        sorted-direction={sortDirection} show-row-number-column="true">
+                    </c-custom-data-table>
+                    <!--  -->
+                    <!-- <lightning-datatable
+                    key-field="Id"
+                    data={accounts}
+                    columns={columns}
+                    enable-infinite-loading
+                    onloadmore={loadMoreData}
+                    oncancel={cancelHandleAction}
+                    oncellchange={handleCellChange}
+                    onsort={handleSort}
+                    draft-values={updatedDrafts}
+                    onsave={saveHandleAction}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    show-row-number-column="true"
+                    class="datatable"
+                >
+                </lightning-datatable> -->
+                    <template if:true={showSpinner}>
+                        <lightning-spinner alternative-text="Loading" size="medium" class="spinner"></lightning-spinner>
+                    </template>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-grid slds-no-flex forceListViewManagerSecondaryDisplayManager" style="min-width:321px;max-width:321px">
+                    <span style="width:100%">
+                        <c-filter-datatable>
+                        </c-filter-datatable>
+                    </span>
+                </div>
+            </div>
+
+
+			
+		</div>
+</template>
